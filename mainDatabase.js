@@ -35,4 +35,8 @@ submit.addEventListener('click',(e) => {
   phone_student: phone.value,
   category_book: category.value
 	});
+  document.querySelector('.alert').style.display='block';
+  setTimeout(function(){
+  document.querySelector('.alert').style.display='none';
+  },3000);
 });
