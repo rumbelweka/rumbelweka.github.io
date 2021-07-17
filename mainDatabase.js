@@ -19,9 +19,9 @@ const database = firebase.database();
 
 const id = document.getElementById("id");
 const datetime = document.getElementById("currentDate");
-const student = document.getElementById("demo-name");
-const email = document.getElementById("demo-email");
-const phone = document.getElementById("demo-phone");
+const student = document.getElementById("name");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
 const category = document.getElementById("demo-category");
 
 const submit = document.getElementById("submit");
