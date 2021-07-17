@@ -39,4 +39,8 @@ submit.addEventListener('click',(e) => {
   setTimeout(function(){
   document.querySelector('.alert').style.display='none';
   },3000);
+
+  firebase.database().ref('users/').on('value',(sanpshot)=>{
+    console.log(sanpshot.val())
+  })
 });
