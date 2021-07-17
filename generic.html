@@ -36,18 +36,43 @@
 								<h2>Book Schedules</h2>
 									<div class="row gtr-uniform">
 										<div class="col-6 col-12-xsmall">
-											<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+											<input type="text" name="demo-date" id="currentDate"/>
 										</div>
 										<div class="col-6 col-12-xsmall">
-											<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+											<input type="text" name="demo-name" id="name" value="" placeholder="Name" />
 										</div>
 										<div class="col-6 col-12-xsmall">
-											<input type="text" name="demo-phone" id="demo-phone" value="" placeholder="Phone Number" />
+											<input type="email" name="demo-email" id="email" value="" placeholder="Email" />
+										</div>
+										<div class="col-6 col-12-xsmall">
+											<input type="text" name="demo-phone" id="phone" value="" placeholder="Phone Number" />
+										</div>
+										<div class="col-6 col-12-xsmall">
+											<input type="text" name="demo-id" id="id"/>
+										</div>
+										<div class="col-12">
+											<select name="demo-category" id="demo-category">
+												<option value="">- Book Available -</option>
+												<option value="Monday 1">Monday 1 - 10.00 AM to 12.00 PM</option>
+												<option value="Monday 2">Monday 2 - 1.00 PM to 3.00 PM</option>
+												<option value="Monday 3">Monday 3 - 3.00 PM to 5.00 PM</option>
+												<option value="Tuesday 1">Tuesday 1 - 10.00 AM to 12.00 PM</option>
+												<option value="Tuesday 2">Tuesday 2 - 1.00 PM to 3.00 PM</option>
+												<option value="Tuesday 3">Tuesday 3 - 3.00 PM to 5.00 PM</option>
+												<option value="Wednesday 1">Wednesday 1 - 10.00 AM to 12.00 PM</option>
+												<option value="Wednesday 2">Wednesday 2 - 1.00 PM to 3.00 PM</option>
+												<option value="Wednesday 3">Wednesday 3 - 3.00 PM to 5.00 PM</option>
+												<option value="Thursday 1">Thursday 1 - 10.00 AM to 12.00 PM</option>
+												<option value="Thursday 2">Thursday 2 - 1.00 PM to 3.00 PM</option>
+												<option value="Thursday 3">Thursday 3 - 3.00 PM to 5.00 PM</option>
+												<option value="Friday 1">Friday 1 - 10.00 AM to 12.00 PM</option>
+												<option value="Friday 2">Friday 2 - 1.00 PM to 3.00 PM</option>
+												<option value="Friday 3">Friday 3 - 3.00 PM to 5.00 PM</option>
+											</select>
 										</div>
 										<div class="col-12">
 											<ul class="actions">
-												<li><input onclick="editRow();" type="submit" value="Send Message" class="primary" /></li>
-												<li><input type="reset" value="Reset" /></li>
+												<li><input id="submit" type="submit" value="Send Message" class="primary" /></li>
 											</ul>
 										</div>
 									</div>
@@ -200,7 +225,6 @@
 			<script src="./assets/js/breakpoints.min.js"></script>
 			<script src="./assets/js/util.js"></script>
 			<script src="./assets/js/main.js"></script>
-			
 			<!--Firebase scripts-->
 			<!-- The core Firebase JS SDK is always required and must be listed first -->
 			<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
@@ -209,5 +233,12 @@
 				https://firebase.google.com/docs/web/setup#available-libraries -->
 			<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
 			<script src="mainDatabase.js"></script>
+			<!--Date scripts-->
+			<script>
+				var today = new Date();
+				var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+				var time = today.getHours() + ":" + today.getMinutes();
+				document.getElementById("currentDate").value = "date: "+date+" - time: "+time;
+			</script>
 	</body>
 </html>

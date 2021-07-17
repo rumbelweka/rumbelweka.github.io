@@ -15,4 +15,24 @@ var firebaseConfig = {
 				firebase.analytics();
 
 // Reference messages collection
-var messagesRef = firebase.database().ref('messages');
+const database = firebase.database();
+
+const id = document.getElementById("id");
+const datetime = document.getElementById("currentDate");
+const student = document.getElementById("demo-name");
+const email = document.getElementById("demo-email");
+const phone = document.getElementById("demo-phone");
+const category = document.getElementById("demo-category");
+
+const submit = document.getElementById("submit");
+
+submit.addEventListener('click',(e) => {
+	e.preventDefault();
+	database.ref('/users/'+id.value).set({
+  date_time: currentDate.value,
+  student_name: student.value,
+  email_student: email.value,
+  phone_student: phone.value,
+  category_student: category.value
+	});
+});
