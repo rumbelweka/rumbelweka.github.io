@@ -15,4 +15,4 @@ var firebaseConfig = {
 				firebase.analytics();
 
 // Reference messages collection
-var messagesRef = firebase.database().ref('contactformmessages');
+var messagesRef = firebase.database().ref('messages');
