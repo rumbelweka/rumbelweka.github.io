@@ -33,6 +33,6 @@ submit.addEventListener('click',(e) => {
   student_name: student.value,
   email_student: email.value,
   phone_student: phone.value,
-  category_student: category.value
+  category_book: category.value
 	});
 });
