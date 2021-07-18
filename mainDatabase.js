@@ -17,7 +17,7 @@ var firebaseConfig = {
 // Reference messages collection
 const database = firebase.database();
 
-const id = document.getElementById("id");
+const id = Math.floor(Math.random() * 10);
 const datetime = document.getElementById("currentDate");
 const student = document.getElementById("name");
 const email = document.getElementById("email");
@@ -40,7 +40,41 @@ submit.addEventListener('click',(e) => {
   document.querySelector('.alert').style.display='none';
   },3000);
 
-  firebase.database().ref('users/').on('value',(sanpshot)=>{
+  firebase.database().ref('users/').once('value',(sanpshot)=>{
     console.log(sanpshot.val())
+	if(snapshot.exists()){
+        var content = '';
+        snapshot.forEach(function(data){
+            var val = data.val();
+            content +='<tr>';
+            content += '<td>' + val.date_time + '</td>';
+            content += '<td>' + val.student_name + '</td>';
+            content += '<td>' + val.email_student + '</td>';
+            content += '<td>' + val.phone_student + '</td>';
+			content += '<td>' + val.category_book + '</td>';
+            content += '</tr>';
+        });
+        $('#table1').append(content);
+    }
   })
 });
+
+(function() {
+  const dataStudents = document.getElementById('read-firebase');
+  const dbStudentRef = firebase.database().ref('users/');
+  dbStudentRef.on('value', snap => dataStudents.innerText = snap.val());
+  var table = document.querySelector('#table1 tbody');
+  dbStudentRef.on('value', snap => {
+    while(table.hasChildNodes()) {
+		    table.removeChild(table.firstChild);
+	  }
+    var studentsData = snap.val();
+    for(var i in studentsData) {
+      var row = table.insertRow(-1);
+      for(var j in studentsData[i]) {
+				cell = row.insertCell(-1);
+				cell.innerHTML = studentsData[i][j];
+			}
+		}
+  });
+}());
