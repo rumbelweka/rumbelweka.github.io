@@ -17,18 +17,20 @@ var firebaseConfig = {
 // Reference messages collection
 const database = firebase.database();
 
-const id = Math.floor(Math.random() * 10);
+var id = Math.floor(Math.random() * 1000);
+var input_ID= id.toString();
 const datetime = document.getElementById("currentDate");
 const student = document.getElementById("name");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const category = document.getElementById("demo-category");
-
+console.log("Nilai id: "+input_ID)
+console.log(typeof(student.value))
 const submit = document.getElementById("submit");
 
 submit.addEventListener('click',(e) => {
 	e.preventDefault();
-	database.ref('/users/'+id.value).set({
+	database.ref('/users/'+input_ID).set({
   date_time: currentDate.value,
   student_name: student.value,
   email_student: email.value,
